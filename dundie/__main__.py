@@ -1,6 +1,6 @@
 
 def main():
-    print("Executing dundi from entry point.")
+    print("Executing dundie from entry point.")
 
 if __name__ == "__main__":
     main()
