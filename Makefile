@@ -14,6 +14,14 @@ ipython:
 	@.venv/bin/ipython
 
 
+test:
+	@.venv/bin/pytest -vv -s tests/
+
+
+watch:
+	# @.venv/bin/ptw -- -vv -s tests/
+	@ls **/*.py | entr pytest
+
 clean:            ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;
 	@find ./ -name '__pycache__' -exec rm -rf {} \;
