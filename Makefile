@@ -18,6 +18,10 @@ test:
 	@.venv/bin/pytest -vv -s tests/
 
 
+testci:
+	@.venv/bin/pytest -v --junitxml=test-result.xml
+
+
 watch:
 	# @.venv/bin/ptw -- -vv -s tests/
 	@ls **/*.py | entr pytest
