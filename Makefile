@@ -1,4 +1,4 @@
-.PHONY: install virtualenv ipython clean
+.PHONY: install virtualenv ipython clean pflake8
 
 
 install:
@@ -26,6 +26,7 @@ watch:
 	# @.venv/bin/ptw -- -vv -s tests/
 	@ls **/*.py | entr pytest
 
+
 clean:            ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;
 	@find ./ -name '__pycache__' -exec rm -rf {} \;
@@ -40,3 +41,12 @@ clean:            ## Clean unused files.
 	@rm -rf htmlcov
 	@rm -rf .tox/
 	@rm -rf docs/_build
+
+
+lint:  # analise estatica
+	@.venv/bin/pflake8
+
+
+fmt:
+	@.venv/bin/isort --profile=black -m 3 dundie tests integration
+	@.venv/bin/black dundie tests integration

@@ -1,5 +1,8 @@
 import argparse
-from dundie.core import load
+
+from dundie.core import load  # noqa -> sei que esta fora da qualidade, porem
+
+# ignorar no pflake8
 
 
 def main():
@@ -12,13 +15,9 @@ def main():
         type=str,
         help="The subcommand to run",
         choices=("load", "show", "send"),
-        default="help"
+        default="help",
     )
-    parser.add_argument(
-        "filepath",
-        type=str,
-        help="File path to load"
-    )
+    parser.add_argument("filepath", type=str, help="File path to load")
     args = parser.parse_args()
 
     try:
