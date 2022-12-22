@@ -1,5 +1,6 @@
 import argparse
-from dundie.core import load
+from dundie.core import load  # noqa -> sei que esta fora da qualidade, porem
+# ignorar no pflake8
 
 
 def main():
