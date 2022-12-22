@@ -15,7 +15,7 @@ ipython:
 
 
 test:
-	@.venv/bin/pytest -vv -s tests/
+	@.venv/bin/pytest -s
 
 
 testci:
