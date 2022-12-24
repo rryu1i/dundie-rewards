@@ -23,7 +23,7 @@ testci:
 
 
 watch:
-	# @.venv/bin/ptw -- -vv -s tests/
+	# @.venv/bin/ptw
 	@ls **/*.py | entr pytest
 
 
