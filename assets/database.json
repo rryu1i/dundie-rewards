@@ -12,7 +12,7 @@
         },
         "glewis@dundlermifflin.com": {
             "name": "Gabe Lewis",
-            "dept": "Directory",
+            "dept": "C-level",
             "role": "Manager"
         }
     },
@@ -27,6 +27,31 @@
                 "date": "2022-12-26T12:47:56.802622",
                 "actor": "system",
                 "value": 500
+            },
+            {
+                "date": "2022-12-26T14:51:42.106631",
+                "actor": "roger",
+                "value": 30
+            },
+            {
+                "date": "2022-12-26T14:56:13.585844",
+                "actor": "roger",
+                "value": 30
+            },
+            {
+                "date": "2022-12-26T14:56:27.208553",
+                "actor": "roger",
+                "value": -60
+            },
+            {
+                "date": "2022-12-26T14:58:48.417447",
+                "actor": "roger",
+                "value": -60
+            },
+            {
+                "date": "2022-12-26T14:58:56.354456",
+                "actor": "roger",
+                "value": 60
             }
         ],
         "schrute@dundlermifflin.com": [
@@ -34,6 +59,31 @@
                 "date": "2022-12-26T12:47:56.804472",
                 "actor": "system",
                 "value": 100
+            },
+            {
+                "date": "2022-12-26T14:51:42.106639",
+                "actor": "roger",
+                "value": 30
+            },
+            {
+                "date": "2022-12-26T14:56:13.585856",
+                "actor": "roger",
+                "value": 30
+            },
+            {
+                "date": "2022-12-26T14:56:27.208562",
+                "actor": "roger",
+                "value": -60
+            },
+            {
+                "date": "2022-12-26T14:58:48.417456",
+                "actor": "roger",
+                "value": -60
+            },
+            {
+                "date": "2022-12-26T14:58:56.354464",
+                "actor": "roger",
+                "value": 60
             }
         ],
         "glewis@dundlermifflin.com": [
