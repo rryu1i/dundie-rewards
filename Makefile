@@ -15,7 +15,7 @@ ipython:
 
 
 test:
-	@.venv/bin/pytest -s
+	@.venv/bin/pytest -s --forked
 
 
 testci:
@@ -23,8 +23,8 @@ testci:
 
 
 watch:
-	# @.venv/bin/ptw -- -vv -s tests/
-	@ls **/*.py | entr pytest
+	# @.venv/bin/ptw
+	@ls **/*.py | entr pytest --forked
 
 
 clean:            ## Clean unused files.
