@@ -66,7 +66,7 @@ def test_add_or_remove_points_for_person():
 @pytest.mark.unit
 def test_read_with_query():
     db = connect()
-    
+
     pk = "joe@doe.com"
     data = {"name": "Joe Doe", "role": "Salesman", "dept": "Sales"}
     _, created = add_person(db, pk, data)  # o _ era person, mas nao sera usado
