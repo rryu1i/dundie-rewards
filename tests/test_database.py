@@ -1,6 +1,6 @@
 import pytest
 
-from dundie.database import EMPTY_DB, add_person, commit, connect, add_movement
+from dundie.database import EMPTY_DB, add_movement, add_person, commit, connect
 
 
 @pytest.mark.unit
@@ -77,5 +77,4 @@ def test_read_with_query():
     data = {"name": "Jim Doe", "role": "Manager", "dept": "Management"}
     _, created = add_person(db, pk, data)  # o _ era person, mas nao sera usado
     assert created is True
-    
     commit(db)
