@@ -50,3 +50,11 @@ lint:  # analise estatica
 fmt:
 	@.venv/bin/isort --profile=black -m 3 dundie tests integration
 	@.venv/bin/black dundie tests integration
+
+
+build:
+	@python setup.py sdist bdist_wheel
+
+
+publish-test:
+	@twine upload --repository testpypi dist/*
