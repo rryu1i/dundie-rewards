@@ -6,6 +6,7 @@ from pydantic import BaseModel, validator
 from dundie.utils.email import check_valid_email
 
 
+# flake8: noqa
 class InvalidEmailError(Exception):
     ...
 
