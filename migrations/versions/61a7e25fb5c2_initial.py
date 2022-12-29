@@ -8,7 +8,7 @@ Create Date: 2022-12-29 15:08:50.752960
 from alembic import op
 import sqlalchemy as sa
 import sqlmodel
-
+# flake8: noqa
 
 # revision identifiers, used by Alembic.
 revision = '61a7e25fb5c2'
