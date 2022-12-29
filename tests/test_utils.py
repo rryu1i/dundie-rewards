@@ -6,7 +6,7 @@ from dundie.utils.user import generate_simple_password
 
 @pytest.mark.unit
 @pytest.mark.parametrize(
-    "address", ["roger.issonaga@gmail.com", "kekimus@gmail.com", "kek@kek.kek"]
+    "address", ["bruno@rocha.com", "joe@doe.com", "a@b.pt"]
 )
 def test_positive_check_valid_email(address):
     """Ensure email is valid."""
@@ -14,9 +14,7 @@ def test_positive_check_valid_email(address):
 
 
 @pytest.mark.unit
-@pytest.mark.parametrize(
-    "address", ["roger.issonaga@.com", "@gmail.com", "kek@kek"]
-)
+@pytest.mark.parametrize("address", ["bruno@.com", "@doe.com", "a@b"])
 def test_negative_check_valid_email(address):
     """Ensure email is invalid."""
     assert check_valid_email(address) is False
@@ -24,8 +22,11 @@ def test_negative_check_valid_email(address):
 
 @pytest.mark.unit
 def test_generate_simple_password():
-    """Test generation of random simple passwords"""
+    """Test generation of random simple passwords
+    TODO: Generate hashed complex passwords, encrypit it
+    """
     passwords = []
-    for i in range(100):
+    for _ in range(100):
         passwords.append(generate_simple_password(8))
-    assert len(set(passwords)) == 100  # set tira duplicados
+
+    assert len(set(passwords)) == 100

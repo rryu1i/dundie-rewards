@@ -1,12 +1,12 @@
 from datetime import datetime
 from decimal import Decimal
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, Field, validator
 
 from dundie.utils.email import check_valid_email
+from dundie.utils.user import generate_simple_password
 
 
-# flake8: noqa
 class InvalidEmailError(Exception):
     ...
 
@@ -18,9 +18,9 @@ class Person(BaseModel):
     role: str
 
     @validator("pk")
-    def validate_email(cls, v):  # cls e a instancia e v o valor
+    def validate_email(cls, v: str) -> str:
         if not check_valid_email(v):
-            raise InvalidEmailError(f"Email is invalid for {v!r}")
+            raise InvalidEmailError(f"Invalid email for {v!r}")
         return v
 
     def __str__(self) -> str:
@@ -37,24 +37,38 @@ class Balance(BaseModel):
 
 class Movement(BaseModel):
     person: Person
-    date: datetime
     actor: str
     value: Decimal
+    date: datetime = Field(default_factory=lambda: datetime.now().isoformat())
+
+    class Config:
+        json_encoders = {Person: lambda p: p.pk}
 
 
-import json
+class User(BaseModel):
+    person: Person
+    password: str = Field(default_factory=generate_simple_password)
 
-from dundie.database import connect
-
-db = connect()
-
-for pk, data in db["people"].items():
-    p = Person(pk=pk, **data)
+    class Config:
+        json_encoders = {Person: lambda p: p.pk}
 
 
-print(p)
-print(json.dumps(p.dict()))
+if __name__ == "__main__":
+    p = Person(pk="bruno@g.com", name="Bruno", dept="Sales", role="NA")
+    print(p)
+    print(p.json())
 
-balance = Balance(person=p, value=Decimal(100))
-print(balance)
-print(balance.json(models_as_dict=False))
+    b = Balance(person=p, value=100)
+    print(b.json(models_as_dict=False))
+
+    m = Movement(person=p, date=datetime.now(), actor="sys", value=10)
+    print(m.json(models_as_dict=False))
+
+    u = User(person=p)
+    print(u.json(models_as_dict=False))
+
+    email = "invalid@"
+    try:
+        Person(pk=email)
+    except InvalidEmailError as e:
+        assert str(e) == f"Invalid email for {email!r}"

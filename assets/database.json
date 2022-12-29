@@ -17,12 +17,12 @@
         }
     },
     "balance": {
-        "jim@dundermifflin.com": 500,
+        "jim@dundlermifflin.com": 500,
         "schrute@dundlermifflin.com": 100,
         "glewis@dundlermifflin.com": 100
     },
     "movement": {
-        "jim@dundermifflin.com": [
+        "jim@dundlermifflin.com": [
             {
                 "date": "2022-12-26T12:47:56.802622",
                 "actor": "system",
@@ -95,7 +95,7 @@
         ]
     },
     "users": {
-        "jim@dundermifflin.com": {
+        "jim@dundlermifflin.com": {
             "password": "9Q6duYiE"
         },
         "schrute@dundlermifflin.com": {
