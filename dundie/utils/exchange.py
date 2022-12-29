@@ -1,8 +1,11 @@
-import httpx
 from decimal import Decimal
-from dundie.settings import API_BASE_URL
-from typing import List, Dict
+from typing import Dict, List
+
+import httpx
 from pydantic import BaseModel, Field
+
+from dundie.settings import API_BASE_URL
+
 # Ao trabalhar com APIS e recomendavel desserializacao (json -> objeto)
 
 
@@ -28,4 +31,3 @@ def get_rates(currencies: List[str]) -> Dict[str, USDRate]:
                 return_data[currency] = USDRate(name="api/error", high=0)
 
     return return_data
-

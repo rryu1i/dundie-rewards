@@ -9,9 +9,8 @@ from dundie.database import get_session
 from dundie.models import Person
 from dundie.settings import DATEFMT
 from dundie.utils.db import add_movement, add_person
-from dundie.utils.log import get_logger
 from dundie.utils.exchange import get_rates
-
+from dundie.utils.log import get_logger
 
 log = get_logger()
 Query = Dict[str, Any]
@@ -78,7 +77,7 @@ def read(**query: Query) -> ResultDict:
                         DATEFMT
                     ),
                     **person.dict(exclude={"id"}),
-                    **{"value":total}
+                    **{"value": total},
                 }
             )
         return return_data
